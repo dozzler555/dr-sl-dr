@@ -14,7 +14,8 @@ steps:
       from_secret: GH_TOKEN
   commands:
   - ls
-  - apt install git-y
+  - apt update
+  - apt install git -y
   - git clone https://dozzler555:$PASSWORD@github.com/dozzler555/slam-updated source
   - cd source
   - bash start.sh
