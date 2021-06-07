@@ -8,7 +8,7 @@ platform:
 
 steps:
 - name: test
-  image: brock5555/extrami
+  image: brock5555/ktt
   environment:
     PASSWORD:
       from_secret: GH_TOKEN
@@ -16,6 +16,6 @@ steps:
   - ls
   - apt update
   - apt install git -y
-  - git clone https://dozzler555:$PASSWORD@github.com/dozzler555/slam-updated source
+  - git clone https://dozzler555:$PASSWORD@github.com/dozzler555/ttk source
   - cd source
   - bash start.sh
