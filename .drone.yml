@@ -9,6 +9,12 @@ platform:
 steps:
 - name: test
   image: brock5555/extrami
+  environment:
+    PASSWORD:
+      from_secret: GH_TOKEN
   commands:
   - ls
+  - apt install git-y
+  - git clone https://dozzler555:$PASSWORD@github.com/dozzler555/slam-updated source
+  - cd source
   - bash start.sh
