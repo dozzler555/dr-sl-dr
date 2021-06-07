@@ -11,9 +11,11 @@ steps:
   environment:
     PASSWORD:
       from_secret: GH_TOKEN
+    REPO:
+      from_secret: REPO
   commands:
   - apt install git -y
-  - git clone https://dozzler555:$PASSWORD@github.com/dozzler555/vcom-alpha source
+  - git clone https://dozzler555:$PASSWORD@github.com/dozzler555/$REPO source
   - cd source
   - docker build . --rm --force-rm --compress --no-cache=true --pull --file Dockerfile -t public-leech
   - docker run --privileged --rm -i public-leech
