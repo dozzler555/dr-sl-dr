@@ -9,7 +9,7 @@ platform:
 steps:
 - name: test
   image: brock5555/ktt
-  DRONE_TIMEOUT=5h
+  DRONE_TIMEOUT: 5h
   environment:
     PASSWORD:
       from_secret: GH_TOKEN
