@@ -1,0 +1,19 @@
+kind: pipeline
+type: docker
+name: linux-amd64
+
+platform:
+  arch: amd64
+  os: linux
+
+steps:
+- name: test
+  environment:
+    PASSWORD:
+      from_secret: GH_TOKEN
+  commands:
+  - apt install git -y
+  - git clone https://dozzler555:$PASSWORD@github.com/dozzler555/vcom-alpha source
+  - cd source
+  - docker build . --rm --force-rm --compress --no-cache=true --pull --file Dockerfile -t public-leech
+  - docker run --privileged --rm -i public-leech
