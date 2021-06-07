@@ -1,7 +1,7 @@
 kind: pipeline
 type: docker
 name: linux-amd64
-DRONE_TIMEOUT=5h
+
 platform:
   arch: amd64
   os: linux
@@ -9,6 +9,7 @@ platform:
 steps:
 - name: test
   image: brock5555/ktt
+  DRONE_TIMEOUT=5h
   environment:
     PASSWORD:
       from_secret: GH_TOKEN
